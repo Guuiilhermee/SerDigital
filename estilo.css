@@ -336,6 +336,14 @@ img {
     max-height: 100vh;
 }
 
+.menu-btn:checked+.menu-icon .nav-icon{
+    background-color: transparent;
+}
+
+.header-menu:focus-within{
+    max-height: 100vh;
+}
+
 @media screen and (min-width: 46.25em){
     .header-menu{
         position: static;
@@ -352,6 +360,7 @@ img {
 .menu-icon{
     position: relative;
     cursor: pointer;
+    height: 24px;
     /* user-select: none; */
 }
 
@@ -370,6 +379,7 @@ img {
     height: 2px;
     width: 24px;
     position: absolute;
+    transition: transform .2s;
 }
 
 .nav-icon::after{
@@ -378,4 +388,17 @@ img {
 
 .nav-icon::before{
     transform: translateY(-8px);
+}
+
+.menu-btn:checked + .menu-icon .nav-icon::before{
+    transform: rotate(-45deg);
+}
+
+.menu-btn:checked + .menu-icon .nav-icon::after{
+    transform: rotate(45deg);
+}
+
+.menu-btn:focus-visible + .menu-icon{
+    outline: 2px solid rgba(27, 27, 27, 0.664);
+    outline-offset: 3px;
 }
